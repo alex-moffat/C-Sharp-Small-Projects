@@ -1,0 +1,6 @@
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Acme_Accounting\bin\Debug\Acme_Accounting.exe.config
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Acme_Accounting\bin\Debug\Acme_Accounting.exe
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Acme_Accounting\bin\Debug\Acme_Accounting.pdb
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Acme_Accounting\obj\Debug\Acme_Accounting.csproj.CoreCompileInputs.cache
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Acme_Accounting\obj\Debug\Acme_Accounting.exe
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Acme_Accounting\obj\Debug\Acme_Accounting.pdb
