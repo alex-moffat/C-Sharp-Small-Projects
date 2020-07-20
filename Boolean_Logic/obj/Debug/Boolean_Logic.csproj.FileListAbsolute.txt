@@ -1,0 +1,7 @@
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Boolean_Logic\bin\Debug\Boolean_Logic.exe.config
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Boolean_Logic\bin\Debug\Boolean_Logic.exe
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Boolean_Logic\bin\Debug\Boolean_Logic.pdb
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Boolean_Logic\obj\Debug\Boolean_Logic.csprojAssemblyReference.cache
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Boolean_Logic\obj\Debug\Boolean_Logic.csproj.CoreCompileInputs.cache
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Boolean_Logic\obj\Debug\Boolean_Logic.exe
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Boolean_Logic\obj\Debug\Boolean_Logic.pdb
