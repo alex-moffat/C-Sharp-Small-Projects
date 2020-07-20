@@ -1,0 +1,7 @@
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Daily_Report\bin\Debug\Daily_Report.exe.config
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Daily_Report\bin\Debug\Daily_Report.exe
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Daily_Report\bin\Debug\Daily_Report.pdb
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Daily_Report\obj\Debug\Daily_Report.csprojAssemblyReference.cache
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Daily_Report\obj\Debug\Daily_Report.csproj.CoreCompileInputs.cache
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Daily_Report\obj\Debug\Daily_Report.exe
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Daily_Report\obj\Debug\Daily_Report.pdb
