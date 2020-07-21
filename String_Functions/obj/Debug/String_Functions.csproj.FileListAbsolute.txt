@@ -1,0 +1,7 @@
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\String_Functions\bin\Debug\String_Functions.exe.config
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\String_Functions\bin\Debug\String_Functions.exe
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\String_Functions\bin\Debug\String_Functions.pdb
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\String_Functions\obj\Debug\String_Functions.csprojAssemblyReference.cache
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\String_Functions\obj\Debug\String_Functions.csproj.CoreCompileInputs.cache
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\String_Functions\obj\Debug\String_Functions.exe
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\String_Functions\obj\Debug\String_Functions.pdb
