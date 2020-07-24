@@ -20,11 +20,20 @@ namespace Class_Demo
                 try
                 {
                     Console.WriteLine("Pick a number to do some math with:");
-                    int pick1 = Convert.ToInt32(Console.ReadLine());
+                    string s1 = Console.ReadLine();
                     Console.WriteLine("Pick a another number to do some math with:");
-                    int pick2 = Convert.ToInt32(Console.ReadLine());
+                    string s2 = Console.ReadLine();
+                    int pick1 = Convert.ToInt32(s1);
+                    int pick2 = Convert.ToInt32(s2);
+                    decimal d1 = Convert.ToInt64(pick1);
+                    decimal d2 = Convert.ToInt64(pick2);
+                    Console.WriteLine("========== basic.Add()");
                     Console.WriteLine("{0:n0} + {1:n0} = {2:n0}", pick1, pick2, basic.Add(pick1, pick2));
+                    Console.WriteLine("========== basic.Multiply()");
                     Console.WriteLine("{0:n0} x {1:n0} = {2:n0}", pick1, pick2, basic.Multiply(pick1, pick2));
+                    Console.WriteLine("{0} multiplied by the reciprocal of {1} = {2:n0}", d1, d2, basic.Multiply(d1, d2, true));
+                    Console.WriteLine("({0} x {1}) + {0} + {1} = {2:n0}", s1, s2, basic.Multiply(s1, s2));
+                    Console.WriteLine("========== basic.Power()");
                     Console.WriteLine("{0:n0} to the power of {1:n0} = {2:n0}", pick1, pick2, basic.Power(pick1, pick2));
                     valid = true;
                 }
