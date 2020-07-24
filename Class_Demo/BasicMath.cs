@@ -10,29 +10,33 @@ namespace Class_Demo
     {
                 
         //========== ADD method
-        public int Add(int num1, int num2)
+        public int Add(int num1, int num2=3)
         {
+            if (num2 == 3) { Console.WriteLine("Used default value(3)."); }
             int value = num1 + num2;
             return value;
         }
         //========== MULTIPLY OVERLOADED METHODS 
         //--- Multiply two numbers together - input 2 integers, output integer
-        public int Multiply(int num1, int num2)
+        public int Multiply(int num1, int num2=3)
         {
+            if (num2 == 3) { Console.WriteLine("Used default value(3)."); }
             int value = num1 * num2;
             return value;
         }
         //--- Multiply two numbers together then added each of the numbers to the product - input 2 strings, output integer
-        //--- Multiply two numbers together - input 2 integers, output integer
-        public int Multiply(string num1, string num2)
+        public int Multiply(string num1, string num2="3")
         {
+            if (num2 == "") { num2 = "3"; }
+            if (num2 == "3") { Console.WriteLine("Used default value(3)."); }
             int value = (Convert.ToInt32(num1) * Convert.ToInt32(num2)) + Convert.ToInt32(num1) + Convert.ToInt32(num2);
             return value;
         }
 
         //--- Multiply two numbers togther - option to multiply by the reciprocal, input 2 decimals, output integer
-        public int Multiply(decimal num1, decimal num2, bool reciprocal=false)
+        public int Multiply(decimal num1, decimal num2=3m, bool reciprocal=false)
         {
+            if (num2 == 3m) { Console.WriteLine("Used default value(3)."); }
             int value;
             if (reciprocal)
             {
@@ -45,11 +49,19 @@ namespace Class_Demo
             return value;
         }
         //========== POWER method
-        public decimal Power(int num1, int num2)
+        public decimal Power(int num1, int num2=3)
         {
+            if (num2 == 3) { Console.WriteLine("Used default value(3)."); }
             decimal value = (decimal)Math.Pow(num1, num2);
             return value;
         }
-        
+
+        //========== RANDOM NUMBER
+        public int RandomNumber(int min, int max)
+        {
+            Random random = new Random();
+            return random.Next(min, max);            
+        }
+
     }
 }
