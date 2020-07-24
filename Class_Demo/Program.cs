@@ -13,7 +13,7 @@ namespace Class_Demo
             //===== CREATE CLASS OBJECT
             BasicMath basic = new BasicMath();
             
-            //===== GET USER INPUT
+            //===== MULTIPLE STEPS DEMONSTRATED
             bool valid = false;
             while (!valid)
             {
@@ -56,6 +56,38 @@ namespace Class_Demo
                     Console.WriteLine(e.Message);
                 }
             }
+
+            //===== STEP 169
+            Console.WriteLine("\n========== STEP 169 ==========");
+            Step169 step169 = new Step169();
+            string outText;
+            valid = false;
+            while (!valid)
+            {
+                try
+                {
+                    Console.WriteLine("Pick a number to divide by 2:");
+                    int pick1 = Convert.ToInt32(Console.ReadLine());
+                    //--- calling void method
+                    step169.FunWith2(pick1);
+                    //--- calling overloaded method
+                    step169.FunWith2();
+                    valid = true;
+                    //--- calling method with output parameter
+                    step169.FunWith2(pick1, out int value, out outText);
+                    Console.WriteLine(outText);
+                    //--- calling method in a static class
+                    float C = ConvertTemp.FahrenheitToCelsius((float)value);
+                    float F = ConvertTemp.CelsiusToFahrenheit((float)value);
+                    Console.WriteLine("Sending output parameter from FunWith2 to ConvertTemp static Class:\n{0:n0}F is {1:n}C\n{0:n0}C is {2:n}F", value, C, F);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Oops...something went wrong:");
+                    Console.WriteLine(e.Message);
+                }
+            }
+
 
             //===== HOLD OPEN - till enter is pressed
             Console.ReadLine();
