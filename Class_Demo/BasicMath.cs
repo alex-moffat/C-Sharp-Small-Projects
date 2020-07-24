@@ -8,7 +8,16 @@ namespace Class_Demo
 {
     public class BasicMath
     {
-                
+
+        //========== VOID method
+        public void PrintRandom(int num1, int num2, int min=1, int max=100, string msg="")
+        {
+            if (msg != "") { msg = String.Format("\nThe optional message was:\n{0}", msg); }
+            int value = RandomNumber(min, max);
+            value += num1;
+            Console.WriteLine("===== VOID METHOD =====\nA random number between {0} and {1} was added to num1({2}) which equals {3}.\nNum2({4}) was ignored.{5}",min, max, num1, value, num2, msg);
+        }
+
         //========== ADD method
         public int Add(int num1, int num2=3)
         {

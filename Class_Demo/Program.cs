@@ -42,6 +42,12 @@ namespace Class_Demo
                     Console.WriteLine("========== basic.Power()");
                     Console.WriteLine("{0:n0} to the power of {1:n0} = {2:n0}", pick1, pick2, basic.Power(pick1, pick2));
                     Console.WriteLine("{0:n0} to the power of default = {1:n0}", pick1, basic.Power(pick1));
+                    //--- VOID METHOD
+                    basic.PrintRandom(pick1, pick2);
+                    basic.PrintRandom(num1: pick1, num2: 4, max: 50);
+                    basic.PrintRandom(num1: 2, num2: 6, min: 20, max: 50);
+                    basic.PrintRandom(num1: 5, num2: 13, msg: "Having fun with C#... But not as much as Python!");
+
                     valid = true;
                 }
                 catch (Exception e)
