@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Class_Demo
 {
-    public class Employee : Person
+    public class Employee : Person, IQuittable
     {
         //===== PROPERTIES
         public int Id { get; set; }
@@ -16,7 +16,10 @@ namespace Class_Demo
         {
             base.SayName();
         }
-
+        public void Quit(string option = "Sorry to see you go") // this default option will override IQuit default option 
+        {
+            Console.WriteLine("{0} {1} {2}. \nGood luck in your future endeavors!", option, FirstName, LastName);
+        }
 
     }
 }

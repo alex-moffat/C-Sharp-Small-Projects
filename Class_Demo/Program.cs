@@ -10,8 +10,17 @@ namespace Class_Demo
     {
         static void Main(string[] args)
         {
+            //===== STEP 182
+            Console.WriteLine("\n========== STEP 182 ==========");
+            Employee employee2 = new Employee() { FirstName = "Alexander", LastName = "Hamilton", Id = 2 };
+            employee2.Quit(); //uses default message from employee method
+            IQuittable iQuittable = new Employee() { FirstName = "Aaron", LastName = "Burr", Id = 3 };
+            iQuittable.Quit(); // uses default message from IQuit method (even though it can't be implemented)
+            IQuittable iQuittable2 = new Employee() { FirstName = "Donald", LastName = "Duck", Id = 4 };
+            iQuittable2.Quit("Can you be the president");
+
             //===== STEP 179
-            Console.WriteLine("\n========== STEP 174 ==========");
+            Console.WriteLine("\n========== STEP 179 ==========");
             Employee employee1 = new Employee() { FirstName = "Sample", LastName = "Student" , Id = 1};
             employee1.SayName();
             Console.WriteLine("Employee Id: " + employee1.Id);
