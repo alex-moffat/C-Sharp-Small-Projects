@@ -10,10 +10,17 @@ namespace Class_Demo
     {
         static void Main(string[] args)
         {
+            //===== STEP 174
+            Console.WriteLine("\n========== STEP 174 ==========");
+            Employee employee1 = new Employee() { FirstName = "Sample", LastName = "Student" , Id = 1};
+            employee1.SayName();
+            Console.WriteLine("Employee Id: " + employee1.Id);
+
             //===== CREATE CLASS OBJECT
             BasicMath basic = new BasicMath();
-            
+
             //===== MULTIPLE STEPS DEMONSTRATED
+            Console.WriteLine("\n========== MULTIPLE EXAMPLES ==========");
             bool valid = false;
             while (!valid)
             {
