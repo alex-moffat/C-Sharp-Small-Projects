@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace Class_Demo
 {
-    public class Person
+    public abstract class Person
     {
         //===== PROPERTIES
-        public string FirstName, LastName;
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
 
         //===== METHODS
-        public void SayName()
+        public virtual void SayName()
         {
             Console.WriteLine("Name: {0} {1}.", FirstName, LastName);
         }

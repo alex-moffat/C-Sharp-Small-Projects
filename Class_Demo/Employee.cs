@@ -8,6 +8,15 @@ namespace Class_Demo
 {
     public class Employee : Person
     {
-        public int Id;
+        //===== PROPERTIES
+        public int Id { get; set; }
+
+        //===== METHODS
+        public override void SayName()
+        {
+            base.SayName();
+        }
+
+
     }
 }
