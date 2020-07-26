@@ -10,21 +10,32 @@ namespace Class_Demo
     {
         static void Main(string[] args)
         {
-            //===== STEP 182
-            Console.WriteLine("\n========== STEP 182 ==========");
-            Employee employee2 = new Employee() { FirstName = "Alexander", LastName = "Hamilton", Id = 2 };
-            employee2.Quit(); //uses default message from employee method
-            IQuittable iQuittable = new Employee() { FirstName = "Aaron", LastName = "Burr", Id = 3 };
-            iQuittable.Quit(); // uses default message from IQuit method (even though it can't be implemented)
-            IQuittable iQuittable2 = new Employee() { FirstName = "Donald", LastName = "Duck", Id = 4 };
-            iQuittable2.Quit("Can you be the president");
-
             //===== STEP 179
             Console.WriteLine("\n========== STEP 179 ==========");
-            Employee employee1 = new Employee() { FirstName = "Sample", LastName = "Student" , Id = 1};
+            Employee employee1 = new Employee() { FirstName = "Sample", LastName = "Student", Id = 1 };
             employee1.SayName();
             Console.WriteLine("Employee Id: " + employee1.Id);
 
+            //===== STEP 182
+            Console.WriteLine("\n========== STEP 182 ==========");
+            Employee employee2 = new Employee() { FirstName = "Alexander", LastName = "Hamilton", Id = 2 };
+            employee2.Quit(); //uses default message from employee class method
+            IQuittable iQuittable = new Employee() { FirstName = "Aaron", LastName = "Burr", Id = 3 };
+            iQuittable.Quit(); // uses default message from IQuittable interface method (even though it can't be implemented)
+            IQuittable iQuittable2 = new Employee() { FirstName = "Donald", LastName = "Duck", Id = 4 };
+            iQuittable2.Quit("Can you be the president");
+
+            //===== STEP 187
+            Console.WriteLine("\n========== STEP 187 ==========");
+            Employee employee3 = new Employee() { FirstName = "George", LastName = "Washington", Id = 3 };
+            Employee employee4 = new Employee() { FirstName = "Donald", LastName = "Trump", Id = 4 };
+            Console.WriteLine("{0} {1} == {2} {3} = {4}", employee2.FirstName, employee2.LastName, employee3.FirstName, employee3.LastName, employee2 == employee3);
+            //--- created ReturnName() method in Employee abstract class to access IQuittable interface properties, can't access direcly like above
+            Console.WriteLine("{0} == {1} = {2}", employee3.ReturnName(), employee4.ReturnName(), employee3 == employee4);
+            //--- NOTE: can cast interface object to employee class object to make comparison to an Employee class object 
+            Console.WriteLine("{0} == {1} = {2}", employee4.ReturnName(), iQuittable2.ReturnName(), employee4 == (Employee)iQuittable2);
+                      
+            
             //===== CREATE CLASS OBJECT
             BasicMath basic = new BasicMath();
 

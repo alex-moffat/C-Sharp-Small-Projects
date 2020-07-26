@@ -17,5 +17,10 @@ namespace Class_Demo
         {
             Console.WriteLine("Name: {0} {1}.", FirstName, LastName);
         }
+        public virtual string ReturnName()
+        {
+            string str = this.FirstName + " " + this.LastName;
+            return str;
+        }
     }
 }
