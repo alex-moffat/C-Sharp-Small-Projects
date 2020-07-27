@@ -12,30 +12,44 @@ namespace Class_Demo
         {
             //===== STEP 179
             Console.WriteLine("\n========== STEP 179 ==========");
-            Employee employee1 = new Employee() { FirstName = "Sample", LastName = "Student", Id = 1 };
+            Employee<string> employee1 = new Employee<string> { FirstName = "Sample", LastName = "Student", Id = 1, Things = { "Study Hard", "Play Hard", "Take Breaks" } };
             employee1.SayName();
             Console.WriteLine("Employee Id: " + employee1.Id);
 
             //===== STEP 182
             Console.WriteLine("\n========== STEP 182 ==========");
-            Employee employee2 = new Employee() { FirstName = "Alexander", LastName = "Hamilton", Id = 2 };
+            Employee<string> employee2 = new Employee<string> { FirstName = "Alexander", LastName = "Hamilton", Id = 2, Things = { "Those who stand for nothing fall for everything.", "I never expect a perfect work from an imperfect man.", "A nation which can prefer disgrace to danger is prepared for a master, and deserves one." } };
             employee2.Quit(); //uses default message from employee class method
-            IQuittable iQuittable = new Employee() { FirstName = "Aaron", LastName = "Burr", Id = 3 };
+            IQuittable iQuittable = new Employee<string> { FirstName = "Aaron", LastName = "Burr", Id = 3 };
             iQuittable.Quit(); // uses default message from IQuittable interface method (even though it can't be implemented)
-            IQuittable iQuittable2 = new Employee() { FirstName = "Donald", LastName = "Duck", Id = 4 };
+            IQuittable iQuittable2 = new Employee<string> { FirstName = "Donald", LastName = "Duck", Id = 4 };
             iQuittable2.Quit("Can you be the president");
 
             //===== STEP 187
             Console.WriteLine("\n========== STEP 187 ==========");
-            Employee employee3 = new Employee() { FirstName = "George", LastName = "Washington", Id = 3 };
-            Employee employee4 = new Employee() { FirstName = "Donald", LastName = "Trump", Id = 4 };
+            Employee<string> employee3 = new Employee<string> { FirstName = "George", LastName = "Washington", Id = 3, Things = { "It is better to offer no excuse than a bad one.", "Human happiness and moral duty are inseparably connected.", "Guard against the impostures of pretended patriotism." } };
+            Employee<string> employee4 = new Employee<string> { FirstName = "Donald", LastName = "Trump", Id = 4, Things = { "Despite the constant negative press covfefe.", "There was no collusion. Everybody knows there was no collusion.", "I think we've done more than perhaps any president in the first 100 days." } };
             Console.WriteLine("{0} {1} == {2} {3} = {4}", employee2.FirstName, employee2.LastName, employee3.FirstName, employee3.LastName, employee2 == employee3);
             //--- created ReturnName() method in Employee abstract class to access IQuittable interface properties, can't access direcly like above
             Console.WriteLine("{0} == {1} = {2}", employee3.ReturnName(), employee4.ReturnName(), employee3 == employee4);
+            Console.WriteLine("{0} != {1} = {2}", employee3.ReturnName(), employee4.ReturnName(), employee3 != employee4);
             //--- NOTE: can cast interface object to employee class object to make comparison to an Employee class object 
-            Console.WriteLine("{0} == {1} = {2}", employee4.ReturnName(), iQuittable2.ReturnName(), employee4 == (Employee)iQuittable2);
-                      
-            
+            Console.WriteLine("{0} == {1} = {2}", employee4.ReturnName(), iQuittable2.ReturnName(), employee4 == (Employee<string>)iQuittable2);
+
+            //===== STEP 190
+            Console.WriteLine("\n========== STEP 190 ==========");
+            Employee<string> employee16 = new Employee<string> { FirstName = "Abraham", LastName = "Lincoln", Id = 16, Things = { "America will never be destroyed from the outside. If we falter and lose our freedoms, it will be because we destroyed ourselves.", "Nearly all men can stand adversity, but if you want to test a man's character, give him power.", "I would rather be a little nobody, then to be a evil somebody." } };
+            Employee<int> employee5 = new Employee<int> { FirstName = "Leonardo", LastName = "\"Fibonacci\" Bonacci", Id = 16, Things = { 0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987 } };
+
+            Console.WriteLine("{0} is know for these quotes:", employee1.ReturnName());
+            employee1.SayThings();
+            Console.WriteLine("\nFounding father {0} is know for these quotes:\n{1}", employee2.ReturnName(), employee2.ReturnThings());
+            Console.WriteLine("President {0} is know for these quotes:\n{1}", employee3.ReturnName(), employee3.ReturnThings());
+            Console.WriteLine("President {0} is know for these quotes:\n{1}", employee16.ReturnName(), employee16.ReturnThings());
+            Console.WriteLine("President {0} is know for these quotes:\n{1}", employee4.ReturnName(), employee4.ReturnThings());
+            Console.WriteLine("{0} is know for these numbers: {1}", employee5.ReturnName(), employee5.ReturnThings(newline: false));
+
+
             //===== CREATE CLASS OBJECT
             BasicMath basic = new BasicMath();
 
