@@ -1,0 +1,7 @@
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Enum_Demo\bin\Debug\Enum_Demo.exe.config
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Enum_Demo\bin\Debug\Enum_Demo.exe
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Enum_Demo\bin\Debug\Enum_Demo.pdb
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Enum_Demo\obj\Debug\Enum_Demo.csprojAssemblyReference.cache
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Enum_Demo\obj\Debug\Enum_Demo.csproj.CoreCompileInputs.cache
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Enum_Demo\obj\Debug\Enum_Demo.exe
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Enum_Demo\obj\Debug\Enum_Demo.pdb
