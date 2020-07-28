@@ -47,6 +47,7 @@
     <Compile Include="ConvertTemp.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="IQuittable.cs" />
+    <Compile Include="Number.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Step169.cs" />
     <Compile Include="Program.cs" />

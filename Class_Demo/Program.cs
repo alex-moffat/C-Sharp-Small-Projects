@@ -10,6 +10,11 @@ namespace Class_Demo
     {
         static void Main(string[] args)
         {
+            //===== CONSOLE COLOR
+            Console.BackgroundColor = ConsoleColor.DarkGray;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.Clear();
+            
             //===== STEP 179
             Console.WriteLine("\n========== STEP 179 ==========");
             Employee<string> employee1 = new Employee<string> { FirstName = "Sample", LastName = "Student", Id = 1, Things = { "Study Hard", "Play Hard", "Take Breaks" } };
@@ -49,6 +54,17 @@ namespace Class_Demo
             Console.WriteLine("President {0} is know for these quotes:\n{1}", employee4.ReturnName(), employee4.ReturnThings());
             Console.WriteLine("{0} is know for these numbers: {1}", employee5.ReturnName(), employee5.ReturnThings(newline: false));
 
+            //===== STEP 200
+            Console.WriteLine("\n========== STEP 200 ==========");
+            Number piNum = new Number() { Amount = 3.14159265359m };
+            Console.WriteLine("My STRUCT Number (piNum) Amount = {0}", piNum.Amount);
+            Console.WriteLine("===== COPY piNum --> piSqu");
+            Number piSqu = piNum;
+            Console.WriteLine("My STRUCT Number (piSqu) Amount = {0}", piSqu.Amount);
+            Console.WriteLine("===== SQUARE piSqu Amount");
+            piSqu.Amount *= piSqu.Amount;
+            Console.WriteLine("My STRUCT Number (piNum) Amount = {0:f5}", piNum.Amount);
+            Console.WriteLine("My STRUCT Number (piSqu) Amount = {0:f5}", piSqu.Amount);
 
             //===== CREATE CLASS OBJECT
             BasicMath basic = new BasicMath();
