@@ -9,7 +9,7 @@ namespace Enum_Demo
     class Program
     {
         //===== ENUM - custom variable
-        enum DaysOfWeek { monday, tuesday, wednesday, thursday, friday, saturday, sunday }
+        enum DaysOfWeek { sunday, monday, tuesday, wednesday, thursday, friday, saturday }
         static void Main(string[] args)
         {
             //===== CONSOLE COLOR
@@ -19,6 +19,7 @@ namespace Enum_Demo
 
             DayOfWeek wk = DateTime.Today.DayOfWeek; // system enum variable
             Console.WriteLine(wk);
+            Console.WriteLine(Convert.ToInt32(wk));
 
             Console.WriteLine("\n========== ENUM DEMO ==========");
             //===== USER INPUT
@@ -54,9 +55,14 @@ namespace Enum_Demo
                 {
                     if (wk.ToString().ToLower() == theDay.ToString())
                     {
-                        Console.WriteLine("{0} == {1} = {3}", wk, theDay, wk.ToString() == theDay.ToString());
+                        Console.WriteLine("{0} == {1} = {2}", wk, char.ToUpper(theDay.ToString()[0]) + theDay.ToString().Substring(1), true);
                         valid = true;
                     }
+                    else if (Convert.ToInt32(wk) == Convert.ToInt32(theDay))
+                    {
+                        Console.WriteLine("{0} == {1} = {2}", wk, char.ToUpper(theDay.ToString()[0]) + theDay.ToString().Substring(1), true);
+                        valid = true;
+                    }             
                     else
                     {
                         Console.WriteLine("Today is not {0}. Try again.", char.ToUpper(theDay.ToString()[0]) + theDay.ToString().Substring(1));
