@@ -49,6 +49,7 @@
     <Compile Include="IQuittable.cs" />
     <Compile Include="Number.cs" />
     <Compile Include="Person.cs" />
+    <Compile Include="Staff.cs" />
     <Compile Include="Step169.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

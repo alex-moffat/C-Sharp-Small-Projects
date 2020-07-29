@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,14 +15,14 @@ namespace Class_Demo
             Console.BackgroundColor = ConsoleColor.DarkGray;
             Console.ForegroundColor = ConsoleColor.Black;
             Console.Clear();
-            
-            //===== STEP 179
+
+            //===== STEP 179 =====
             Console.WriteLine("\n========== STEP 179 ==========");
             Employee<string> employee1 = new Employee<string> { FirstName = "Sample", LastName = "Student", Id = 1, Things = { "Study Hard", "Play Hard", "Take Breaks" } };
             employee1.SayName();
             Console.WriteLine("Employee Id: " + employee1.Id);
 
-            //===== STEP 182
+            //===== STEP 182 =====
             Console.WriteLine("\n========== STEP 182 ==========");
             Employee<string> employee2 = new Employee<string> { FirstName = "Alexander", LastName = "Hamilton", Id = 2, Things = { "Those who stand for nothing fall for everything.", "I never expect a perfect work from an imperfect man.", "A nation which can prefer disgrace to danger is prepared for a master, and deserves one." } };
             employee2.Quit(); //uses default message from employee class method
@@ -30,7 +31,7 @@ namespace Class_Demo
             IQuittable iQuittable2 = new Employee<string> { FirstName = "Donald", LastName = "Duck", Id = 4 };
             iQuittable2.Quit("Can you be the president");
 
-            //===== STEP 187
+            //===== STEP 187 =====
             Console.WriteLine("\n========== STEP 187 ==========");
             Employee<string> employee3 = new Employee<string> { FirstName = "George", LastName = "Washington", Id = 3, Things = { "It is better to offer no excuse than a bad one.", "Human happiness and moral duty are inseparably connected.", "Guard against the impostures of pretended patriotism." } };
             Employee<string> employee4 = new Employee<string> { FirstName = "Donald", LastName = "Trump", Id = 4, Things = { "Despite the constant negative press covfefe.", "There was no collusion. Everybody knows there was no collusion.", "I think we've done more than perhaps any president in the first 100 days." } };
@@ -41,7 +42,7 @@ namespace Class_Demo
             //--- NOTE: can cast interface object to employee class object to make comparison to an Employee class object 
             Console.WriteLine("{0} == {1} = {2}", employee4.ReturnName(), iQuittable2.ReturnName(), employee4 == (Employee<string>)iQuittable2);
 
-            //===== STEP 190
+            //===== STEP 190 =====
             Console.WriteLine("\n========== STEP 190 ==========");
             Employee<string> employee16 = new Employee<string> { FirstName = "Abraham", LastName = "Lincoln", Id = 16, Things = { "America will never be destroyed from the outside. If we falter and lose our freedoms, it will be because we destroyed ourselves.", "Nearly all men can stand adversity, but if you want to test a man's character, give him power.", "I would rather be a little nobody, then to be a evil somebody." } };
             Employee<int> employee5 = new Employee<int> { FirstName = "Leonardo", LastName = "\"Fibonacci\" Bonacci", Id = 16, Things = { 0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987 } };
@@ -54,7 +55,7 @@ namespace Class_Demo
             Console.WriteLine("President {0} is know for these quotes:\n{1}", employee4.ReturnName(), employee4.ReturnThings());
             Console.WriteLine("{0} is know for these numbers: {1}", employee5.ReturnName(), employee5.ReturnThings(newline: false));
 
-            //===== STEP 200
+            //===== STEP 200 =====
             Console.WriteLine("\n========== STEP 200 ==========");
             Number piNum = new Number() { Amount = 3.14159265359m };
             Console.WriteLine("My STRUCT Number (piNum) Amount = {0}", piNum.Amount);
@@ -66,11 +67,62 @@ namespace Class_Demo
             Console.WriteLine("My STRUCT Number (piNum) Amount = {0:f5}", piNum.Amount);
             Console.WriteLine("My STRUCT Number (piSqu) Amount = {0:f5}", piSqu.Amount);
 
-            //===== CREATE CLASS OBJECT
-            BasicMath basic = new BasicMath();
+            //===== STEP 203 =====
+            Console.WriteLine("\n========== STEP 203 ==========");
+            Employee<int> e1 = new Employee<int> { FirstName = "Joe", LastName = "Montana", Id = 1, Things = { 1979, 1994 } };
+            Employee<int> e2 = new Employee<int> { FirstName = "Joe", LastName = "Namath", Id = 2, Things = { 1965, 1977 } };
+            Employee<int> e3 = new Employee<int> { FirstName = "Joe", LastName = "Flacco", Id = 3, Things = { 2008, 2020 } };
+            Employee<int> e4 = new Employee<int> { FirstName = "Tom", LastName = "Brady", Id = 4, Things = { 2000, 2020 } };
+            Employee<int> e5 = new Employee<int> { FirstName = "Payton", LastName = "Manning", Id = 5, Things = { 1998, 2015 } };
+            Employee<int> e6 = new Employee<int> { FirstName = "John", LastName = "Elway", Id = 6, Things = { 1983, 1998 } };
+            Employee<int> e7 = new Employee<int> { FirstName = "Roger", LastName = "\"Staubach", Id = 7, Things = { 1964, 1980 } };
+            Employee<int> e8 = new Employee<int> { FirstName = "Dan", LastName = "Marino", Id = 8, Things = { 1983, 2000 } };
+            Employee<int> e9 = new Employee<int> { FirstName = "Steve", LastName = "Young", Id = 9, Things = { 1984, 1999 } };
+            Employee<int> e10 = new Employee<int> { FirstName = "Brett", LastName = "Favre", Id = 10, Things = { 1991, 2010 } };
+            //--- Created new class 'Staff' to hold employees
+            Staff<int> nfl = new Staff<int>();
+            //--- Use overloaded operator in staff class to add new employees to staff
+            nfl = nfl + e1 + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10;
+            Console.WriteLine("NFL quarterbacks added to staff: {0}", nfl.Employees.Count());
+            
+            //--- Use foreach loop to create filtered list by first name
+            Console.WriteLine("\n//===== Use foreach loop to create list of employees filtered by first name");
+            List<Employee<int>> joeList = nfl.GetEmployees(fName: "Joe", lamb: false);
+            Console.WriteLine("Listing {0} employees with the first name \"Joe\":", joeList.Count());
+            foreach (Employee<int> e in joeList) { Console.WriteLine("{0} played in the NFL from {1} through {2}", e.ReturnName(), e.Things[0], e.Things[1]); }
+            
+            //--- Use lambda expression to create filtered list by first name
+            Console.WriteLine("\n//===== Use lambda expression to create list of employees filtered by first name");
+            joeList = nfl.GetEmployees(fName: "Joe", lamb: true);
+            Console.WriteLine("Listing {0} employees with the first name \"Joe\":", joeList.Count());
+            foreach (Employee<int> e in joeList) { Console.WriteLine("{0} played in the NFL from {1} through {2}", e.ReturnName(), e.Things[0], e.Things[1]); }
+
+            //--- Use lambda expression to create filtered list, created overloaded operator in staff class
+            Console.WriteLine("\n//===== Use lambda expression to create a filtered list by ID");
+            List<Employee<int>> IDList = nfl > 5;
+            Console.WriteLine("\nListing {0} employees with ID > 5:", IDList.Count());
+            foreach (Employee<int> e in IDList) { Console.WriteLine("{0} played in the NFL from {1} through {2}", e.ReturnName(), e.Things[0], e.Things[1]); }
+            IDList = nfl >= 5;
+            Console.WriteLine("\nListing {0} employees with ID >= 5:", IDList.Count());
+            foreach (Employee<int> e in IDList) { Console.WriteLine("{0} played in the NFL from {1} through {2}", e.ReturnName(), e.Things[0], e.Things[1]); }
+            IDList = nfl < 5;
+            Console.WriteLine("\nListing {0} employees with ID < 5:", IDList.Count());
+            foreach (Employee<int> e in IDList) { Console.WriteLine("{0} played in the NFL from {1} through {2}", e.ReturnName(), e.Things[0], e.Things[1]); }
+            IDList = nfl <= 5;
+            Console.WriteLine("\nListing {0} employees with ID <= 5:", IDList.Count());
+            foreach (Employee<int> e in IDList) { Console.WriteLine("{0} played in the NFL from {1} through {2}", e.ReturnName(), e.Things[0], e.Things[1]); }
+            IDList = nfl == 5;
+            Console.WriteLine("\nListing {0} employees with ID == 5:", IDList.Count());
+            foreach (Employee<int> e in IDList) { Console.WriteLine("{0} played in the NFL from {1} through {2}", e.ReturnName(), e.Things[0], e.Things[1]); }
+            IDList = nfl != 5;
+            Console.WriteLine("\nListing {0} employees with ID != 5:", IDList.Count());
+            foreach (Employee<int> e in IDList) { Console.WriteLine("{0} played in the NFL from {1} through {2}", e.ReturnName(), e.Things[0], e.Things[1]); }
+
 
             //===== MULTIPLE STEPS DEMONSTRATED
             Console.WriteLine("\n========== MULTIPLE EXAMPLES ==========");
+            //--- CREATE CLASS OBJECT
+            BasicMath basic = new BasicMath();
             bool valid = false;
             while (!valid)
             {
