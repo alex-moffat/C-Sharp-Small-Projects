@@ -1,0 +1,7 @@
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\File_IO\bin\Debug\File_IO.exe.config
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\File_IO\bin\Debug\File_IO.exe
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\File_IO\bin\Debug\File_IO.pdb
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\File_IO\obj\Debug\File_IO.csprojAssemblyReference.cache
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\File_IO\obj\Debug\File_IO.csproj.CoreCompileInputs.cache
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\File_IO\obj\Debug\File_IO.exe
+C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\File_IO\obj\Debug\File_IO.pdb
