@@ -1,5 +1,7 @@
 ========== File_IO LOG ==========
-6789
-7979
-112
-112
+===== START LOG --> 7/31/2020 7:03:55 PM
+User Selected: 6
+6 hours from 7/31/2020 7:03:55 PM is 8/1/2020 1:03:55 AM
+===== START LOG --> 7/31/2020 7:05:47 PM
+User Selected: 7
+7 hours from 7/31/2020 7:05:47 PM is 8/1/2020 2:05:47 AM

@@ -22,19 +22,28 @@ namespace File_IO
             string logFile = logDir + @"\log.txt";
             if (!Directory.Exists(logDir))
             {
-                Directory.CreateDirectory(logDir);                
+                Directory.CreateDirectory(logDir);
                 File.WriteAllText(logFile, logTxt);
             }
-            
+                        
+            //========== DATETIME - current
+            DateTime timeNow = DateTime.Now;
+            //----- print to file
+            logTxt = string.Format("===== START LOG --> {0}\n", timeNow);
+            File.AppendAllText(logFile, logTxt);
+            //----- print to screen
+            Console.WriteLine("========== STEP 222 ==========");
+            Console.WriteLine("Current time: {0}", timeNow);
+
             //========== USER INPUT
             bool isValid = false;
+            int num = 0;
             while (!isValid)
             {
                 try
                 {
                     Console.WriteLine("Please enter a number:");
-                    int num = Convert.ToInt32(Console.ReadLine());
-                    logTxt = num.ToString();
+                    num = Convert.ToInt32(Console.ReadLine());
                     isValid = true;
                 }
                 catch (Exception e)
@@ -44,16 +53,20 @@ namespace File_IO
                 }
             }
 
-            //========== WRITE TO FILE
-            //--- method 1
-            using (StreamWriter file = new StreamWriter(logFile, append: true))
-            {
-                file.WriteLine(logTxt);
-            }
-            //--- method 2
-            File.AppendAllText(logFile, logTxt);
+            //========== ADD TIME
+            TimeSpan addTime = new TimeSpan(num, 0, 0);
+            DateTime futureTime = timeNow.Add(addTime);
 
-            //========== WRITE TO FILE
+            //========== WRITE - to file & console
+            logTxt = string.Format("User Selected: {0}", num);
+            Console.WriteLine(logTxt);
+            using (StreamWriter file = new StreamWriter(logFile, append: true)) file.WriteLine(logTxt);
+                        
+            logTxt = string.Format("{0} hours from {1} is {2}", num, timeNow, futureTime);
+            Console.WriteLine(logTxt);
+            using (StreamWriter file = new StreamWriter(logFile, append: true)) file.WriteLine(logTxt);
+            
+            //========== PRINT - file to screen
             Console.WriteLine(File.ReadAllText(logFile));
 
             //===== HOLD OPEN - till enter is pressed
