@@ -118,6 +118,20 @@ namespace Class_Demo
             Console.WriteLine("\nListing {0} employees with ID != 5:", IDList.Count());
             foreach (Employee<int> e in IDList) { Console.WriteLine("{0} played in the NFL from {1} through {2}", e.ReturnName(), e.Things[0], e.Things[1]); }
 
+            //===== STEP 203 =====
+            const string stepNum = "STEP 230";
+            Console.WriteLine("\n========== {0} ==========", stepNum);
+            var title = "Installing a new software";
+            var body = new List<string>()
+            {
+                "See the license agreement,",
+                "skip reading,",
+                "click\"I agree\".",
+                "Install."
+            };
+            Poem poem = new Poem(title, body);
+            poem.DisplayPoem();
+
 
             //===== MULTIPLE STEPS DEMONSTRATED
             Console.WriteLine("\n========== MULTIPLE EXAMPLES ==========");
