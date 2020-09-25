@@ -5,3 +5,10 @@ C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Class_Demo\obj\Debug
 C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Class_Demo\obj\Debug\Class_Demo.csproj.CoreCompileInputs.cache
 C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Class_Demo\obj\Debug\Class_Demo.exe
 C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Class_Demo\obj\Debug\Class_Demo.pdb
+C:\Users\Alexander\Documents\GitHub\C-Sharp-Small-Projects\Class_Demo\bin\Debug\Class_Demo.exe.config
+C:\Users\Alexander\Documents\GitHub\C-Sharp-Small-Projects\Class_Demo\bin\Debug\Class_Demo.exe
+C:\Users\Alexander\Documents\GitHub\C-Sharp-Small-Projects\Class_Demo\bin\Debug\Class_Demo.pdb
+C:\Users\Alexander\Documents\GitHub\C-Sharp-Small-Projects\Class_Demo\obj\Debug\Class_Demo.csprojAssemblyReference.cache
+C:\Users\Alexander\Documents\GitHub\C-Sharp-Small-Projects\Class_Demo\obj\Debug\Class_Demo.csproj.CoreCompileInputs.cache
+C:\Users\Alexander\Documents\GitHub\C-Sharp-Small-Projects\Class_Demo\obj\Debug\Class_Demo.exe
+C:\Users\Alexander\Documents\GitHub\C-Sharp-Small-Projects\Class_Demo\obj\Debug\Class_Demo.pdb
