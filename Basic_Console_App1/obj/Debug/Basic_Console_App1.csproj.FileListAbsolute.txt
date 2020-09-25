@@ -5,3 +5,10 @@ C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Basic_Console_App1\o
 C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Basic_Console_App1\obj\Debug\Basic_Console_App1.csproj.CoreCompileInputs.cache
 C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Basic_Console_App1\obj\Debug\Basic_Console_App1.exe
 C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Basic_Console_App1\obj\Debug\Basic_Console_App1.pdb
+C:\Users\Alexander\Documents\GitHub\C-Sharp-Small-Projects\Basic_Console_App1\bin\Debug\Basic_Console_App1.exe.config
+C:\Users\Alexander\Documents\GitHub\C-Sharp-Small-Projects\Basic_Console_App1\bin\Debug\Basic_Console_App1.exe
+C:\Users\Alexander\Documents\GitHub\C-Sharp-Small-Projects\Basic_Console_App1\bin\Debug\Basic_Console_App1.pdb
+C:\Users\Alexander\Documents\GitHub\C-Sharp-Small-Projects\Basic_Console_App1\obj\Debug\Basic_Console_App1.csprojAssemblyReference.cache
+C:\Users\Alexander\Documents\GitHub\C-Sharp-Small-Projects\Basic_Console_App1\obj\Debug\Basic_Console_App1.csproj.CoreCompileInputs.cache
+C:\Users\Alexander\Documents\GitHub\C-Sharp-Small-Projects\Basic_Console_App1\obj\Debug\Basic_Console_App1.exe
+C:\Users\Alexander\Documents\GitHub\C-Sharp-Small-Projects\Basic_Console_App1\obj\Debug\Basic_Console_App1.pdb
