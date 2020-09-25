@@ -10,6 +10,7 @@ These are very small projects designed to provide examples of basic coding conce
 - [Branch shipping cost estimator](#branching-program)
 - [Class_Demo](#class-demo)
 - [Contact List MVC Demo](#contact-list-mvc-demo)
+- [Enum Demo](#enum-demo)
 
 ## Arrays and Lists
 
@@ -939,5 +940,97 @@ public ActionResult Import(HttpPostedFileBase postedFile)
         }
     }
     return RedirectToAction("Index");
+}
+```
+
+## Enum Demo
+
+### Commit
+- Create an enum for the days of the week.
+- Prompt the user to enter the current day of the week.
+- Assign the value to a variable of that enum data type created.
+- Use a try/catch block to check if user enters a day of the week and print to console if error occurs.
++ Use Enum.tryparse() method to check if user entered a valid day of the week.
++ Use system enum DayOfWeek to check day enter by user against actual day of the week.
++ Message user for etiher outcome.
++ Format enum to string & use string format methods
+
+### Output
+![alt text](https://github.com/alex-moffat/C-Sharp-Small-Projects/blob/master/Enum_Demo/Screenshot_enum_demo.jpg "Enum_Demo")
+
+### Code
+```CS
+class Program
+{
+    //===== ENUM - custom variable
+    enum DaysOfWeek { sunday, monday, tuesday, wednesday, thursday, friday, saturday }
+    static void Main(string[] args)
+    {
+        //===== CONSOLE COLOR
+        Console.BackgroundColor = ConsoleColor.DarkGray;
+        Console.ForegroundColor = ConsoleColor.Black;
+        Console.Clear();
+
+        DayOfWeek wk = DateTime.Today.DayOfWeek; // system enum variable
+        Console.WriteLine(wk);
+        Console.WriteLine(Convert.ToInt32(wk));
+
+        Console.WriteLine("\n========== ENUM DEMO ==========");
+        //===== USER INPUT
+        bool valid = false;
+        string strInput;
+        DaysOfWeek theDay;
+        //---VALIDATE - using try/except method
+        Console.WriteLine("\n===== USING try/catch method");
+        while (!valid)
+        {
+            try
+            {
+                Console.WriteLine("\nEnter the current day of the week:");
+                strInput = Console.ReadLine().ToLower();
+                theDay = (DaysOfWeek)Enum.Parse(typeof(DaysOfWeek), strInput);
+                Console.WriteLine("You picked {0}.", char.ToUpper(theDay.ToString()[0]) + theDay.ToString().Substring(1));
+                valid = true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Please enter an actual day of the week:");
+                Console.WriteLine(e.Message);
+            }
+        }
+        //---VALIDATE - using tryparse() method
+        Console.WriteLine("\n===== USING tryparse() method");
+        valid = false;
+        while (!valid)
+        {
+            Console.WriteLine("\nEnter the current day of the week:");
+            strInput = Console.ReadLine().ToLower();
+            if (Enum.TryParse(strInput, true, out theDay))
+            {
+                if (wk.ToString().ToLower() == theDay.ToString())
+                {
+                    Console.WriteLine("{0} == {1} = {2}", wk, char.ToUpper(theDay.ToString()[0]) + theDay.ToString().Substring(1), true);
+                    valid = true;
+                }
+                else if (Convert.ToInt32(wk) == Convert.ToInt32(theDay))
+                {
+                    Console.WriteLine("{0} == {1} = {2}", wk, char.ToUpper(theDay.ToString()[0]) + theDay.ToString().Substring(1), true);
+                    valid = true;
+                }             
+                else
+                {
+                    Console.WriteLine("Today is not {0}. Try again.", char.ToUpper(theDay.ToString()[0]) + theDay.ToString().Substring(1));
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("Please enter an actual day of the week:");
+            }                    
+        }
+
+        //===== HOLD OPEN - till enter is pressed
+        Console.ReadLine();
+    }
 }
 ```
