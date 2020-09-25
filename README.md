@@ -4,7 +4,7 @@
 These are very small projects designed to provide examples of basic coding concepts and commenting. Most examples were completed in less than 2 hours.    
 
 ## CONTENTS
-- [Arrays and Lists](arrays-and-lists)
+- [Arrays and Lists](#arrays-and-lists)
 
 ## Arrays and Lists
 
