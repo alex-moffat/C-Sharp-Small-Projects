@@ -9,6 +9,7 @@ These are very small projects designed to provide examples of basic coding conce
 - [Boolean Logic](#boolean-logic)
 - [Branch shipping cost estimator](#branching-program)
 - [Class_Demo](#class-demo)
+- [Contact List MVC Demo](#contact-list-mvc-demo)
 
 ## Arrays and Lists
 
@@ -804,5 +805,139 @@ public class Staff<T>
         List<Employee<T>> filtered = staff.Employees.Where(e => e.Id != id).ToList();
         return filtered;
     }
+}
+```
+
+## Contact List MVC Demo
+
+### Commit
+Create MVC project that uses Excel spreadsheet as a data source for SQL Server:
++ Add File select button
++ Validate file format
++ Compatible with Excel version 97-2003 and 2007 and above
++ Remove empty row with no first and last name from Excel SELECT
++ Format phone number to <=10 numerals only
++ Validate email format
+
+### Output
+![alt text](https://github.com/alex-moffat/C-Sharp-Small-Projects/blob/master/Contact_List_Demo/CS_ContactList_index.jpg "Contact_List_Index")
+![alt text](https://github.com/alex-moffat/C-Sharp-Small-Projects/blob/master/Contact_List_Demo/CS_ContactList_import.jpg "Contact_List_Import")
+
+### Code
+```CS
+[HttpPost]
+public ActionResult Import(HttpPostedFileBase postedFile)
+{
+    string filePath = string.Empty;
+    if (postedFile != null)
+    {
+        //===== UPLOADS FOLDER - create folder if doesn't exist
+        string path = Server.MapPath("/Uploads/");
+        if (!Directory.Exists(path))
+        {
+            Directory.CreateDirectory(path);
+        }
+
+        //===== VALIDATE EXCEL & SET CONNECTION STRING
+        filePath = path + Path.GetFileName(postedFile.FileName);
+        string extension = Path.GetExtension(postedFile.FileName);
+        string conString;
+        switch (extension)
+        {
+            case ".xls": //Excel 97-03.
+                conString = ConfigurationManager.ConnectionStrings["Excel03ConString"].ConnectionString;
+                break;
+            case ".xlsx": //Excel 07 and above.
+                conString = ConfigurationManager.ConnectionStrings["Excel07ConString"].ConnectionString;
+                break;
+            default:
+                ViewBag.InvalidImport = "IMPORT ONLY EXCEL FILES";
+                return View("Import");
+        }
+
+        //===== SAVE EXCEL to uploads folder, create connection string with filepath
+        postedFile.SaveAs(filePath);
+        conString = string.Format(conString, filePath); // connection string has a {0} placeholder for filePath
+
+        //===== EXCEL READ - create new table object, get first sheet name, read data from first sheet, place in table object 
+        DataTable dt = new DataTable();
+        using (OleDbConnection connExcel = new OleDbConnection(conString))
+        {
+            using (OleDbCommand cmdExcel = new OleDbCommand())
+            {
+                using (OleDbDataAdapter odaExcel = new OleDbDataAdapter())
+                {
+                    cmdExcel.Connection = connExcel;
+
+                    //--- Get the name of First Sheet.
+                    connExcel.Open();
+                    DataTable dtExcelSchema;
+                    dtExcelSchema = connExcel.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
+                    string sheetName = dtExcelSchema.Rows[0]["TABLE_NAME"].ToString();
+                    connExcel.Close();
+
+                    //--- Read Data from First Sheet.
+                    connExcel.Open();
+                    cmdExcel.CommandText = "SELECT FirstName, LastName, Email, Phone From [" + sheetName + "] WHERE [FirstName] IS NOT NULL AND [LastName] IS NOT NULL";
+                    odaExcel.SelectCommand = cmdExcel;
+                    odaExcel.Fill(dt);
+                    connExcel.Close();
+                }
+            }
+        }
+
+        //===== FORMAT PHONE/EMAIL - remove all non-numeric phone number digits, remove leading 1, make no longer than 10 digits
+        foreach (DataRow dr in dt.Rows)
+        {
+            //----- Remove non-numeric digits
+            string drPhone = dr["Phone"].ToString();
+            string tempPhone;
+            if (!int.TryParse(drPhone, out _) || drPhone != "")
+            {
+                tempPhone = "";
+                char[] chars = drPhone.ToCharArray();
+                foreach (char c in chars)
+                {
+                    if (char.IsDigit(c)) tempPhone += c.ToString();
+                }
+                drPhone = tempPhone;
+            }
+            //----- Remove leading "1"
+            if (drPhone.StartsWith("1")) drPhone = drPhone.Substring(1, drPhone.Length-1);
+            //----- Set max phone length = 10
+            if (drPhone.Length > 10) drPhone = drPhone.Substring(0, 10);
+            //----- SET phone
+            dr["Phone"] = drPhone;
+
+            //----- VALIDATE EMAIL
+            if (!dr["Email"].ToString().Contains(".") || !dr["Email"].ToString().Contains("@"))
+            {
+                dr["Email"] = null;
+            }
+        }
+
+        //===== SQL INSERT DATA
+        conString = ConfigurationManager.ConnectionStrings["db_ContactListEntities_Manual"].ConnectionString;
+        using (SqlConnection con = new SqlConnection(conString))
+        {
+            using (SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(con))
+            {
+                //--- Set the database table name
+                sqlBulkCopy.DestinationTableName = "dbo.Contacts";
+
+                //--- [OPTIONAL]: Map the Excel columns with that of the database table (Excel, DB)
+                sqlBulkCopy.ColumnMappings.Add("FirstName", "FirstName");
+                sqlBulkCopy.ColumnMappings.Add("LastName", "LastName");
+                sqlBulkCopy.ColumnMappings.Add("Phone", "Phone");
+                sqlBulkCopy.ColumnMappings.Add("Email", "Email");
+
+                //--- DB Write
+                con.Open();
+                sqlBulkCopy.WriteToServer(dt);
+                con.Close();
+            }
+        }
+    }
+    return RedirectToAction("Index");
 }
 ```
