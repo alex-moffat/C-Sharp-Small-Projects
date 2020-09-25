@@ -465,18 +465,66 @@ static void Main(string[] args)
 
 ## Class Demo
 
+### Description
+Create multiple classes and methods that main program references. This demo was constructed from multiple smaller demos encapsulated into different classes. Total development time 2 days. 
+
 ### Commit
-- Create multiple classes that program references.
 - Create three methods in the class that take two integer parameters
 - Methods perform addition, multiplication, and power opertions
 - Ask the user what numbers they want to do the math operations with.
 - Call each method, passing the user input to the method.
 - Display the returned integer/decimal to the screen.
+- Create a class that has methods that take two integers as parameters.
+- Make parameter optional.
+- Have the method do a math operation and return an integer result.
+- Instantiate the class.
+- Ask the user to input two numbers, one at a time.
+- Tell user second number is optional.
+- Call all methods in the class, passing in the one or two numbers entered.
++ Include Random number for second number if left blank by user.
+- Create a class with method overloading
+- Create a method in the class takes an integer, perform a math operation, then return the answer as an integer.
+- Create another method in the class with the same name that takes in a decimal, performs different math operation, then return the answer as an integer.
+- Create a third method to the class with the same name that takes a string, converts it to an integer, performs a different math operation, then returns an integer.
+- Instantiate the class and call the one method at a time, passing integers, decimals, and strings.
+- Create class void method that takes two integers as parameters.
+- Method adds first number to a random random number and prints both the sum and second number to the screen.
++ Method takes optional inputs for min, max values for random number.
++ Method takes optional message that can be printed to the screen.
+- Call method in the class, passing in two numbers with and without options.
+- Call method in the class, specifying the parameters by name.
+- Create a class with a void method that outputs an integer.
+- In the Main() method, instantiate that class.
+- Have the user enter a number.
+- Have the method divide the data passed to it by 2.
+- Display the output to the screen.
+- Create a method with output parameters.
+- Overload a method.
+- Declare a class to be static.
++ Call methods in static class and print values to screen
+- Create a class called Person with two string properties (FirstName, LastName)
+- Create class void method called SayName() that takes no parameters and prints to the console in the format of: "Name: [full name]".
+- Create child class called Employee that inherits from the Person class.
+- Give the Employee class an int property called Id.
+- Instantiate and initialize an Employee object with a first name of "Sample" and a last name of "Student".
+- Call the superclass method SayName() on the Employee object.
+- Create an abstract class called Person with two string properties (FirstName, LastName).
+- Create method SayName().
+- Create child class called Employee that inherits from the Person class.
+- Implement the SayName() method inside of the Employee class.
+- Instantiate an Employee object.
+- Call the SayName() method on the object.
+- Create an interface called IQuittable with a void method called Quit().
+- Employee class inherits interface and implement Quit().
+- Use polymorphism to create an object of type IQuittable and call the Quit() method.
 
 ### Output
 ![alt text](https://github.com/alex-moffat/C-Sharp-Small-Projects/blob/master/Class_Demo/Screenshot_class_demo.jpg "Class_Demo")
 
 ### Code
+Sample of two of ten total classes in demo.
+
+#### Main
 ```CS
 static void Main(string[] args)
 {
@@ -683,5 +731,78 @@ static void Main(string[] args)
 
     //===== HOLD OPEN - till enter is pressed
     Console.ReadLine();
+}
+```
+
+#### Staff
+```CS
+public class Staff<T>
+{
+    //===== PROPERTIES
+    public List<Employee<T>> Employees = new List<Employee<T>>();
+
+    //===== GET EMPLOYEE - filter employees that match input criteria, return list of employee objects, option to execute using lambda expression
+    public List<Employee<T>> GetEmployees(string fName = "", bool lamb = true)
+    {
+        List<Employee<T>> filtered = new List<Employee<T>>();
+        //=== FIRST NAME - filter if first name matches the input 
+        if (lamb)
+        {
+            filtered = Employees.Where(e => (e.FirstName == fName && fName != "") || fName == "").ToList();
+        }
+        else
+        {
+            foreach (Employee<T> e in Employees)
+            {
+                if ((fName != "" && e.FirstName == fName) || fName == "") { filtered.Add(e); }
+            }                
+        }
+        return filtered;
+    }
+
+
+    //===== OPERATOR METHODS (+ , -): Add/remove employee from staff
+    public static Staff<T> operator +(Staff<T> staff, Employee<T> employee)
+    {
+        staff.Employees.Add(employee);
+        return staff;
+    }
+    public static Staff<T> operator -(Staff<T> staff, Employee<T> employee)
+    {
+        staff.Employees.Remove(employee);
+        return staff;
+    }
+
+    //===== OPERATOR METHODS (> , < , >= , <=, ==, !=): Create filtered list of employees used Id comparitor
+    public static List<Employee<T>> operator >(Staff<T> staff, int id)
+    {
+        List<Employee<T>> filtered = staff.Employees.Where(e => e.Id > id).ToList();
+        return filtered;
+    }
+    public static List<Employee<T>> operator <(Staff<T> staff, int id)
+    {
+        List<Employee<T>> filtered = staff.Employees.Where(e => e.Id < id).ToList();
+        return filtered;
+    }
+    public static List<Employee<T>> operator <=(Staff<T> staff, int id)
+    {
+        List<Employee<T>> filtered = staff.Employees.Where(e => e.Id <= id).ToList();
+        return filtered;
+    }
+    public static List<Employee<T>> operator >=(Staff<T> staff, int id)
+    {
+        List<Employee<T>> filtered = staff.Employees.Where(e => e.Id >= id).ToList();
+        return filtered;
+    }
+    public static List<Employee<T>> operator ==(Staff<T> staff, int id)
+    {
+        List<Employee<T>> filtered = staff.Employees.Where(e => e.Id == id).ToList();
+        return filtered;
+    }
+    public static List<Employee<T>> operator !=(Staff<T> staff, int id)
+    {
+        List<Employee<T>> filtered = staff.Employees.Where(e => e.Id != id).ToList();
+        return filtered;
+    }
 }
 ```
