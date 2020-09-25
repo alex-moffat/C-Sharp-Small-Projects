@@ -5,3 +5,10 @@ C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Arrays_Lists\obj\Deb
 C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Arrays_Lists\obj\Debug\Arrays_Lists.csproj.CoreCompileInputs.cache
 C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Arrays_Lists\obj\Debug\Arrays_Lists.exe
 C:\Users\Alexander\Desktop\GIT_local\C-Sharp-Small-Projects\Arrays_Lists\obj\Debug\Arrays_Lists.pdb
+C:\Users\Alexander\Documents\GitHub\C-Sharp-Small-Projects\Arrays_Lists\bin\Debug\Arrays_Lists.exe.config
+C:\Users\Alexander\Documents\GitHub\C-Sharp-Small-Projects\Arrays_Lists\bin\Debug\Arrays_Lists.exe
+C:\Users\Alexander\Documents\GitHub\C-Sharp-Small-Projects\Arrays_Lists\bin\Debug\Arrays_Lists.pdb
+C:\Users\Alexander\Documents\GitHub\C-Sharp-Small-Projects\Arrays_Lists\obj\Debug\Arrays_Lists.csprojAssemblyReference.cache
+C:\Users\Alexander\Documents\GitHub\C-Sharp-Small-Projects\Arrays_Lists\obj\Debug\Arrays_Lists.csproj.CoreCompileInputs.cache
+C:\Users\Alexander\Documents\GitHub\C-Sharp-Small-Projects\Arrays_Lists\obj\Debug\Arrays_Lists.exe
+C:\Users\Alexander\Documents\GitHub\C-Sharp-Small-Projects\Arrays_Lists\obj\Debug\Arrays_Lists.pdb
