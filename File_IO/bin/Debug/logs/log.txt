@@ -5,3 +5,6 @@ User Selected: 6
 ===== START LOG --> 7/31/2020 7:05:47 PM
 User Selected: 7
 7 hours from 7/31/2020 7:05:47 PM is 8/1/2020 2:05:47 AM
+===== START LOG --> 9/25/2020 4:20:08 PM
+User Selected: 39
+39 hours from 9/25/2020 4:20:08 PM is 9/27/2020 7:20:08 AM
