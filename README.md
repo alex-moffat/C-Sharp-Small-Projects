@@ -1,7 +1,7 @@
 # C-Sharp-Small-Projects
 
 ## DESCRIPTION
-These are very small projects designed to provide examples of basic coding concepts and commenting. Most examples were completed in less than 2 hours.    
+These are simple projects designed to provide examples of basic coding concepts and commenting. Most examples were completed in about 2 hours.    
 
 ## CONTENTS
 - [Arrays and Lists](#arrays-and-lists)
@@ -12,6 +12,7 @@ These are very small projects designed to provide examples of basic coding conce
 - [Contact List MVC Demo](#contact-list-mvc-demo)
 - [Enum Demo](#enum-demo)
 - [Exception Handling](#exception-handling)
+- [File IO](#file-io)
 
 ## Arrays and Lists
 
@@ -484,7 +485,7 @@ Create multiple classes and methods that main program references. This demo was 
 - Ask the user to input two numbers, one at a time.
 - Tell user second number is optional.
 - Call all methods in the class, passing in the one or two numbers entered.
-+ Include Random number for second number if left blank by user.
+- Include Random number for second number if left blank by user.
 - Create a class with method overloading
 - Create a method in the class takes an integer, perform a math operation, then return the answer as an integer.
 - Create another method in the class with the same name that takes in a decimal, performs different math operation, then return the answer as an integer.
@@ -492,8 +493,8 @@ Create multiple classes and methods that main program references. This demo was 
 - Instantiate the class and call the one method at a time, passing integers, decimals, and strings.
 - Create class void method that takes two integers as parameters.
 - Method adds first number to a random random number and prints both the sum and second number to the screen.
-+ Method takes optional inputs for min, max values for random number.
-+ Method takes optional message that can be printed to the screen.
+- Method takes optional inputs for min, max values for random number.
+- Method takes optional message that can be printed to the screen.
 - Call method in the class, passing in two numbers with and without options.
 - Call method in the class, specifying the parameters by name.
 - Create a class with a void method that outputs an integer.
@@ -504,7 +505,7 @@ Create multiple classes and methods that main program references. This demo was 
 - Create a method with output parameters.
 - Overload a method.
 - Declare a class to be static.
-+ Call methods in static class and print values to screen
+- Call methods in static class and print values to screen
 - Create a class called Person with two string properties (FirstName, LastName)
 - Create class void method called SayName() that takes no parameters and prints to the console in the format of: "Name: [full name]".
 - Create child class called Employee that inherits from the Person class.
@@ -1147,5 +1148,89 @@ class NegException : Exception
     public NegException(string message) : base(message)
     {
     }
+}
+```
+
+## File IO
+
+### Commit
+- Console App
+- Ask the user for a number.
+- Log that number to a text file.
+- Print the text file back to the user.
+- Error handling for user input.
+- Prints the current date and time to the console.
+- Asks the user for a number (X).
+- Prints to the console the exact time it will be in X hours.
+- Log all output to file
+- Print log file contents to console
+
+### Output
+![alt text](https://github.com/alex-moffat/C-Sharp-Small-Projects/blob/master/File_IO/Screenshot_File_IO.jpg "File_IO")
+
+### Code
+```CS
+static void Main(string[] args)
+{
+    //===== CONSOLE COLOR
+    Console.BackgroundColor = ConsoleColor.DarkGray;
+    Console.ForegroundColor = ConsoleColor.Black;
+    Console.Clear();
+
+    //========== LOG FILE
+    string logTxt = "========== File_IO LOG ==========\n";
+    string logDir = Directory.GetCurrentDirectory() + @"\logs";
+    string logFile = logDir + @"\log.txt";
+    if (!Directory.Exists(logDir))
+    {
+        Directory.CreateDirectory(logDir);
+        File.WriteAllText(logFile, logTxt);
+    }
+
+    //========== DATETIME - current
+    DateTime timeNow = DateTime.Now;
+    //----- print to file
+    logTxt = string.Format("===== START LOG --> {0}\n", timeNow);
+    File.AppendAllText(logFile, logTxt);
+    //----- print to screen
+    Console.WriteLine("========== STEP 222 ==========");
+    Console.WriteLine("Current time: {0}", timeNow);
+
+    //========== USER INPUT
+    bool isValid = false;
+    int num = 0;
+    while (!isValid)
+    {
+        try
+        {
+            Console.WriteLine("Please enter a number:");
+            num = Convert.ToInt32(Console.ReadLine());
+            isValid = true;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("Oops...something went wrong:");
+            Console.WriteLine(e.Message);
+        }
+    }
+
+    //========== ADD TIME
+    TimeSpan addTime = new TimeSpan(num, 0, 0);
+    DateTime futureTime = timeNow.Add(addTime);
+
+    //========== WRITE - to file & console
+    logTxt = string.Format("User Selected: {0}", num);
+    Console.WriteLine(logTxt);
+    using (StreamWriter file = new StreamWriter(logFile, append: true)) file.WriteLine(logTxt);
+
+    logTxt = string.Format("{0} hours from {1} is {2}", num, timeNow, futureTime);
+    Console.WriteLine(logTxt);
+    using (StreamWriter file = new StreamWriter(logFile, append: true)) file.WriteLine(logTxt);
+
+    //========== PRINT - file to screen
+    Console.WriteLine(File.ReadAllText(logFile));
+
+    //===== HOLD OPEN - till enter is pressed
+    Console.ReadLine();
 }
 ```
