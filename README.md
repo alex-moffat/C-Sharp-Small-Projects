@@ -13,6 +13,7 @@ These are simple projects designed to provide examples of basic coding concepts 
 - [Enum Demo](#enum-demo)
 - [Exception Handling](#exception-handling)
 - [File IO](#file-io)
+- [Loops Game](#loops-game)
 
 ## Arrays and Lists
 
@@ -1231,6 +1232,80 @@ static void Main(string[] args)
     Console.WriteLine(File.ReadAllText(logFile));
 
     //===== HOLD OPEN - till enter is pressed
+    Console.ReadLine();
+}
+```
+
+## Loops Game
+
+### Commit
+- Use a boolean comparison with a while statement.
+- Use a boolean comparison with a do while statement.
+- Generate a random number
+- Compare user input and provide greater than or less than feedback
+- Use ternary statements
+
+### Output
+![alt text](https://github.com/alex-moffat/C-Sharp-Small-Projects/blob/master/Loops/Screenshot_loops.jpg "Loops_Game")
+
+### Code
+```CS
+static void Main(string[] args)
+{
+    //===== VARIABLES
+    string compare = "";
+    ushort times = 0;
+    Random rnd = new Random();
+    ushort targetNum = Convert.ToUInt16(rnd.Next(1, 101));
+    bool correct = false;
+
+    Console.WriteLine("===== A RANDOM NUMBER HAS BEEN SELECTED =====");
+    Console.WriteLine("Guess a number from 1 to 100:");
+    ushort guessNum = Convert.ToUInt16(Console.ReadLine());
+    ushort target2 = (guessNum == targetNum) ? Convert.ToUInt16(rnd.Next(1, 101)) : guessNum; // round 2 number set here
+
+    //===== DO WHILE - performs before the while condition is evaluated
+    do
+    {
+        times += 1;
+        if (guessNum == targetNum)
+        {
+            Console.WriteLine("Number {0} is correct! It only took you {1} guesses.\n", guessNum, times);
+            correct = true;
+        }
+        else
+        {
+            compare = guessNum > targetNum ? "greater" : "less";
+            Console.WriteLine("You guessed number {0} which is {1} than the correct number. Guess again.\n", guessNum, compare);
+            Console.WriteLine("Guess a number from 1 to 100:");
+            guessNum = Convert.ToUInt16(Console.ReadLine());
+        }
+    }
+    while (!correct);
+
+    //===== WHILE - performs action after the while condition is evaluated
+    targetNum = target2;
+    Console.WriteLine("===== A NEW NUMBER HAS BEEN SELECTED =====");
+    correct = false;
+    times = 0;
+    while (!correct)
+    {
+        times += 1;
+        Console.WriteLine("Guess a number from 1 to 100:");
+        guessNum = Convert.ToUInt16(Console.ReadLine());
+        if (guessNum == targetNum)
+        {
+            Console.WriteLine("Number {0} is correct! It only took you {1} guesses.", guessNum, times);
+            correct = true;
+        }
+        else
+        {
+            compare = guessNum > targetNum ? "greater" : "less";
+            Console.WriteLine("You guessed number {0} which is {1} than the correct number. Guess again.\n", guessNum, compare);
+        }
+    }
+
+    //===== HOLD - console open till enter pressed
     Console.ReadLine();
 }
 ```
